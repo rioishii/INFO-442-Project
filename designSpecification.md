@@ -20,15 +20,17 @@
     * It will be a listview, with every single chore the person has to do. It will say the name of the chore and when it's due. It'll be ordered by priority, such as when the chore is due to be finished.
     * When opening the listview, the chores that need to be done immediately are shown first. If the user scrolls up, they'll see chores that have been done before.
     * Chores have a strike-through through their text and are made into a shade lighter than the color that represents the person.
-* calendar
+* dashboard
     * This will be the core way to have an overview of all chores. This will help users visualize the distribution of chores across a shared living space.
     * The view of this calendar will have weekly format because users naturally see the chores they want to do in a weekly. It doesn't make sense to see chores in a monthly format, since that would show the week you have to do something. This is opposed to the week view, which shows the day in which you have to do something.
+    ![dashboard mockup](./img/dashboard.jpg)
     * The calendar will be color-coded based on the person, and if they finish a chore then the color is shaded a lighter color.
 * create and assign chore
     * You should be able to create a chore from anywhere on the web application.
     * The chore will be able to be assigned to a single or multiple people.
     * If assigning a chore to multiple people, the user will have the ability to choose between rotating the roommate that has to do that chore.
     * When assigning a task to someone, the form will give the option to assign the task anonymously to have the creator be more comfortable in giving out tasks.
+    ![modal](./img/modal.jpg)
     * This will a button floating on the webpage that'll be intuitive to the user, where the button will be something the user will see easily.
     * When adding a chore, a modal pops up over the dashboard with information the user must fill out.
 * pre-made basic tasks
