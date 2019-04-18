@@ -15,3 +15,4 @@ Software must:
 * have functionality to delete chores after clicking on the Chore card
 * have leaderboard to show roommates with highest completion rate of chores in descending order
   * have bar charts showing percentage of all completed chores
+* include data persistence, where leaving the page will not result in the loss of data history
