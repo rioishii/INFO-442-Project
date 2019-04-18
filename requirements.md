@@ -5,14 +5,13 @@
 
 Software must:
 
-* have functionality to add roommates 
-* have functionality to delete roommates
+* have functionality to add/delete roommates from the dashboard by clicking the edit button
 * have functionality to add chores
-  * have functionality to add chores with a custom name
-  * have functionality to add chores with a custom frequency
-  * have functionality to assign roommates to chore
-  * have functionality to linearly cycle through roommate assignments per chore
-  * have functionality to assign chore to group of roommates
+  * with a custom name through using a text field
+  * with a custom frequency using a dropdown menu
+  * and assign roommates to chore using checkboxes
+  * and cycle through a group of assigned roommates (Ex. Roommate1 did chore last, Roommate2 does it next)
+  * and to assign a chore to be completed as a group chore (Ex. Everyone does it together)
 * have functionality to delete chores
 * have leaderboard to show roommates with highest completion rate of chores in descending order
   * have bar charts showing percentage of all completed chores
