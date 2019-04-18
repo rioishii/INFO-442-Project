@@ -40,3 +40,9 @@
     * The filters will be a checkbox menu shown on the left of the screen.
 
 ### Errors
+There will be few errors that can happen within our software since it is a minimum viable product. Here are instances of errors and how we'll handle it:
+
+| Error                | Handling
+| -------------        |:-------------:
+| Blank task made      | Input does not allow submission until all areas are filled
+| User deletes chore assigned to them | The only people that can delete a chore is the one who made it
