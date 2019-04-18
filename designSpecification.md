@@ -25,24 +25,43 @@
     * The view of this calendar will have weekly format because users naturally see the chores they want to do in a weekly. It doesn't make sense to see chores in a monthly format, since that would show the week you have to do something. This is opposed to the week view, which shows the day in which you have to do something.
     ![dashboard mockup](./img/dashboard.jpg)
     * The calendar will be color-coded based on the person, and if they finish a chore then the color is shaded a lighter color.
+    * The user will be able to delete and add roommates through the dashboard after clicking the "edit" button
+    ![adding and deleting roommmates](./img/deleteAddRoommate.jpg)
+    * The user will be able to edit a chore through the dashboard
+    ![editing chore](./img/editTask.jpg)
 * create and assign chore
     * You should be able to create a chore from anywhere on the web application.
     * The chore will be able to be assigned to a single or multiple people.
     * If assigning a chore to multiple people, the user will have the ability to choose between rotating the roommate that has to do that chore.
     * When assigning a task to someone, the form will give the option to assign the task anonymously to have the creator be more comfortable in giving out tasks.
-    ![modal](./img/modal.jpg)
     * This will a button floating on the webpage that'll be intuitive to the user, where the button will be something the user will see easily.
     * When adding a chore, a modal pops up over the dashboard with information the user must fill out.
-* pre-made basic tasks
-    * The "create chore" functionality will have the ability to make predefined and basic chores, such as taking out the trash weekly.
+    ![modal](./img/modal.jpg)
 * filter
     * This will have the ability to select a view of completed chores incompleted chores, and chores responsible to a selected individual.
     * The filters will be a checkbox menu shown on the left of the screen.
 
+### Points of Interaction
+&nbsp;&nbsp;&nbsp;&nbsp; This section will go over the main points of interaction a user will go over to achieve their goals in this application.
+
+* Add/delete roommates
+* Create task
+    * Create name of chore
+    * Assign frequency level (weekly)
+    * Assign to days of the week
+    * Assign to people
+    * Rotate/Share tasks
+* Edit task
+    * Same subinteractions as create task
+* Delete task
+* Mark task as complete
+
+
 ### Errors
-There will be few errors that can happen within our software since it is a minimum viable product. Here are instances of errors and how we'll handle it:
+&nbsp;&nbsp;&nbsp;&nbsp;There will be few errors that can happen within our software since it is a minimum viable product. Here are instances of errors and how we'll handle it:
 
 | Error                | Handling
 | -------------        |:-------------:
 | Blank task made      | Input does not allow submission until all areas are filled
 | User deletes chore assigned to them | The only people that can delete a chore is the one who made it
+| Duplicate tasks made | Input does not allow submission until valid entry is made
