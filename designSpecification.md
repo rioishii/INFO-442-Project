@@ -16,32 +16,60 @@
 &nbsp;&nbsp;&nbsp;&nbsp;This section goes over functionality inside of this application. This will go into detail about what the function is and how the user will interact to achieve this function.
 
 * Dashboard
-    * The dashboard is the only available page on our web application. It consists of three areas of funciontality: a weekly visual calendar, a chore list for each roommate, and a bar graph showing completion rates of all roommates.
+    * The dashboard is the only available page on our web application. It consists of three areas of funciontality: a weekly visual calendar (top right section), a chore list for each roommate (bottom right section), and a bar graph showing completion rates of all roommates (left section).
+    ![dashboard mockup](./img/dashboard.jpg)
     * This is the core overview of all chores. This will help users visualize the distribution of chores across a shared living space.
 * Weekly calendar
     * The view of this calendar will a have weekly format, allowing users to naturally see the chores they must complete within that week. It doesn't make sense to see chores in a monthly format, since that would show the week you have to do something. This is opposed to the week view, which shows more emphasis on the day in which you have to do something.
-    ![dashboard mockup](./img/dashboard.jpg)
-    * Chores on the calendar will be color-coded based on the person. If a chore is completed, then the color is a lighter shade of its original, drawing less attention on the calendar compared to the chores that have not yet been completed.
-    * The user will be able to delete and add roommates through the dashboard after clicking the "edit" button
-    ![adding and deleting roommmates](./img/deleteAddRoommate.jpg)
-    * The user will be able to edit a chore through the dashboard
-    ![editing chore](./img/editTask.jpg)
-* Chore list
-    * Important to each individual user. Helps them stay organized and stay on top of their own chore.
-    * It will be a listview, with every single chore the person has to do. It will say the name of the chore and when it's due. It'll be ordered by priority, such as when the chore is due to be finished.
-    * When opening the listview, the chores that need to be done immediately are shown first. If the user scrolls up, they'll see chores that have been done before.
-    * Chores have a strike-through through their text and are made into a shade lighter than the color that represents the person.
+    * The name of each chore is displayed on the day that the chore is expected to by done by.
+    * Chores on the calendar will be highlighted with a color. It is color-coded based on the person the chore is assigned to.
+    * If a chore is completed, the color changes to a lighter shade of its original and the name of the chore will by striked through. This way completed chores will draw less attention on the calendar compared to incomplete chores.
+    * This section will also contain a button labelled "Add Chore" that when clicked, the web app provides functionality to create and assign a new chore.
 * Create and assign chore
-    * You should be able to create a chore from anywhere on the web application.
-    * The chore will be able to be assigned to a single or multiple people.
-    * If assigning a chore to multiple people, the user will have the ability to choose between rotating the roommate that has to do that chore.
-    * When assigning a task to someone, the form will give the option to assign the task anonymously to have the creator be more comfortable in giving out tasks.
-    * This will a button floating on the webpage that'll be intuitive to the user, where the button will be something the user will see easily.
+    * User should be able to create a chore by clicking the "Add Chore" button located in the weekly calendar section.
     * When adding a chore, a modal pops up over the dashboard with information the user must fill out.
     ![modal](./img/modal.jpg)
-* Filter
-    * This will have the ability to select a view of completed chores incompleted chores, and chores responsible to a selected individual.
-    * The filters will be a checkbox menu shown on the left of the screen.
+    * User must type in a name for the chore in the provided "Name of Chore" field.
+    * User must choose how often the chore occurs by choosing an option from the drop down menu located next to the word "Occurs." Options consisted of "Once," "Weekly," "Bi-weekly," and "Monthly."
+    * If the user chooses once, the web app will provide a field that allows the user choose a specific date by typing it in.
+    * If the user chooses an option that reoccurs (any option besides "once"), the web app will provide a list of check boxes referring to each day of the week. This allows the user to select which days of the week the chore reoccurs. User may choose one or more days.
+    * User must choose a person or people to assign the chore to. Chores may be assigned to a single person or multiple people.
+    * If assigning a chore to multiple people, the user will have the ability to choose between rotating which roommate is assigned to the chore every reoccurance, or having the chosen roommates have shared responsiblity over the same chore. These options will only appear when the user selects multiple people AND the chore is reoccuring. 
+    * After user is done filling out all fields, a button labelled "+ Chore" will become clickable. If all fields are not complete yet, the button will be inactive.
+    * If the user clicks the button, then the chore will be officially created and take on the attributes of an incomplete chore on both the weekly calendar and on the chore lists.
+* Chore lists
+    * Contains a scroll-through list for each roommate.
+    * Each list will be labelled with the roommate's chosen name, with the exception of the user's own list, in which the user will see "Me" in place of their name.
+    * Lists are ordered based on which roommate has the most imminent chores coming up. This draws more attention to the roommates that still need to do their chores.
+    * Each list contains a card for every chore the corresponding roommate still needs to complete within the next 7 days.
+    * The card will say the name of the chore and how many days until it is due. For example, "TODAY," "TOMORROW," "2 DAYS AWAY," etc.
+    * This list is ordered by when the chore is due to be finished - chores due sooner will be placed higher on the list.
+    * Overdue chores are listed before upcoming chores and the card will be highlighted red to make them stand out more.
+    * Scrolling up on a list will allow the user to see cards referring to chores that roommated has recently completed.
+    * Completed chore cards will have the name of the chore and how many days ago the chore was completed. They will also be a lighter shade to help the user differentiate the complete and incomplete chores.
+    * This section contains an "Edit" button. When clicked, the web app provides functionality to add, delete, and edit roommates.
+* Interacting with chore cards
+    * When a user clicks on any chore card in any list or the name of a chore in the weekly calendar, an option menu will "pop out" from the location of the corresponding chore card/chore name.
+    ![editing chore](./img/editTask.jpg)
+    * The option menu consists of the name of the chore, a checkbox to mark it complete, and an button to edit the chore.
+    * When the user checks the box marking it complete, the chore will take on the attributes of a completed task in both the chore list and the weekly calendar.
+    * When the user clicks on the "Edit Chore" button, a pop up modal similar that is formatted the same as the create chore function will appear. The user will be able to change the name, occurence, and the roommate assignments in the modal.
+    * The only things different from the Edit Chore modal from the Add Chore modal would be the title "Edit Chore" and the presence of two buttons at the bottom on opposite corners.
+    * The bottom left button will be a red "Delete Chore" button that when clicked will completely erase the chore from the web app.
+    * The bottom right button will be labelled "Done Editing." When clicked, any changes made in the fields will be reflected in the chore lists and the weekly calendar.
+* Editing roommates
+    * When a user clicks on the "Edit" button, the chores list section will change into a list of the roommates. The order of the list will be preserved from the original order from the chores list.
+    ![adding and deleting roommmates](./img/deleteAddRoommate.jpg)
+    * Each roommate name is a text field that may be edited, allowing the user to edit the name of each roommate.
+    * Next to each roommate name is a red minus button. When clicked, a pop up in the middle of the screen will show up. This pop up will say "Are you sure you want to delete this roommate?" with a "Delete" button and a "Cancel" button.
+    * If the user clicks cancel, the pop up disappears and the original screen behind is shown.
+    * If the user clicks delete, the pop up disappears and the roommate and all of their corresponding chores will be erased from the web app.
+    * In addition to the text fields containing existing roommate names, there will be an additional text field in the list. This text field is used to add new roommates.
+    * To add a new roommate, the user must type something into the blank text field. Once there is a valid input (at least one character), a button labelled "Add Roommate" will appear next to the text field.
+    * If the user clicks on the "Add Roommate" button, the corresponding text field will take on the attributes of an existing roommate text field, and a new blank text field will added at the end of the list, allowing the user to add multiple roommates in succession.
+    * The new roommate will be automatically assigned a color for the weekly calendar's color coding.
+    * The new roommate will start out with 0 chores assigned to them.
+    * The new roommate will take on the same functionality as an existing roommate.
 
 ### Points of Interaction
 &nbsp;&nbsp;&nbsp;&nbsp; This section will go over the main points of interaction a user will go over to achieve their goals in this application.
