@@ -15,20 +15,22 @@
 ### Functionality
 &nbsp;&nbsp;&nbsp;&nbsp;This section goes over functionality inside of this application. This will go into detail about what the function is and how the user will interact to achieve this function.
 
+* Dashboard
+    * The dashboard is the only available page on our web application. It consists of three areas of funciontality: a weekly visual calendar, a chore list for each roommate, and a bar graph showing completion rates of all roommates.
+    * This is the core overview of all chores. This will help users visualize the distribution of chores across a shared living space.
+* Weekly calendar
+    * The view of this calendar will a have weekly format, allowing users to naturally see the chores they must complete within that week. It doesn't make sense to see chores in a monthly format, since that would show the week you have to do something. This is opposed to the week view, which shows more emphasis on the day in which you have to do something.
+    ![dashboard mockup](./img/dashboard.jpg)
+    * Chores on the calendar will be color-coded based on the person. If a chore is completed, then the color is a lighter shade of its original, drawing less attention on the calendar compared to the chores that have not yet been completed.
+    * The user will be able to delete and add roommates through the dashboard after clicking the "edit" button
+    ![adding and deleting roommmates](./img/deleteAddRoommate.jpg)
+    * The user will be able to edit a chore through the dashboard
+    ![editing chore](./img/editTask.jpg)
 * Chore list
     * Important to each individual user. Helps them stay organized and stay on top of their own chore.
     * It will be a listview, with every single chore the person has to do. It will say the name of the chore and when it's due. It'll be ordered by priority, such as when the chore is due to be finished.
     * When opening the listview, the chores that need to be done immediately are shown first. If the user scrolls up, they'll see chores that have been done before.
     * Chores have a strike-through through their text and are made into a shade lighter than the color that represents the person.
-* Dashboard
-    * This will be the core way to have an overview of all chores. This will help users visualize the distribution of chores across a shared living space.
-    * The view of this calendar will have weekly format because users naturally see the chores they want to do in a weekly. It doesn't make sense to see chores in a monthly format, since that would show the week you have to do something. This is opposed to the week view, which shows the day in which you have to do something.
-    ![dashboard mockup](./img/dashboard.jpg)
-    * The calendar will be color-coded based on the person, and if they finish a chore then the color is shaded a lighter color.
-    * The user will be able to delete and add roommates through the dashboard after clicking the "edit" button
-    ![adding and deleting roommmates](./img/deleteAddRoommate.jpg)
-    * The user will be able to edit a chore through the dashboard
-    ![editing chore](./img/editTask.jpg)
 * Create and assign chore
     * You should be able to create a chore from anywhere on the web application.
     * The chore will be able to be assigned to a single or multiple people.
