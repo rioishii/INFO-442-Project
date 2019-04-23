@@ -15,12 +15,12 @@
 ### Functionality
 &nbsp;&nbsp;&nbsp;&nbsp;This section goes over functionality inside of this application. This will go into detail about what the function is and how the user will interact to achieve this function.
 
-* chore list
+* Chore list
     * Important to each individual user. Helps them stay organized and stay on top of their own chore.
     * It will be a listview, with every single chore the person has to do. It will say the name of the chore and when it's due. It'll be ordered by priority, such as when the chore is due to be finished.
     * When opening the listview, the chores that need to be done immediately are shown first. If the user scrolls up, they'll see chores that have been done before.
     * Chores have a strike-through through their text and are made into a shade lighter than the color that represents the person.
-* dashboard
+* Dashboard
     * This will be the core way to have an overview of all chores. This will help users visualize the distribution of chores across a shared living space.
     * The view of this calendar will have weekly format because users naturally see the chores they want to do in a weekly. It doesn't make sense to see chores in a monthly format, since that would show the week you have to do something. This is opposed to the week view, which shows the day in which you have to do something.
     ![dashboard mockup](./img/dashboard.jpg)
@@ -29,7 +29,7 @@
     ![adding and deleting roommmates](./img/deleteAddRoommate.jpg)
     * The user will be able to edit a chore through the dashboard
     ![editing chore](./img/editTask.jpg)
-* create and assign chore
+* Create and assign chore
     * You should be able to create a chore from anywhere on the web application.
     * The chore will be able to be assigned to a single or multiple people.
     * If assigning a chore to multiple people, the user will have the ability to choose between rotating the roommate that has to do that chore.
@@ -37,7 +37,7 @@
     * This will a button floating on the webpage that'll be intuitive to the user, where the button will be something the user will see easily.
     * When adding a chore, a modal pops up over the dashboard with information the user must fill out.
     ![modal](./img/modal.jpg)
-* filter
+* Filter
     * This will have the ability to select a view of completed chores incompleted chores, and chores responsible to a selected individual.
     * The filters will be a checkbox menu shown on the left of the screen.
 
