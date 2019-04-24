@@ -51,7 +51,7 @@
 * Interacting with chore cards
     * When a user clicks on any chore card in any list or the name of a chore in the weekly calendar, an option menu will "pop out" from the location of the corresponding chore card/chore name.
     ![editing chore](./img/editTask.jpg)
-    * The option menu consists of the name of the chore, a checkbox to mark it complete, and an button to edit the chore.
+    * The option menu consists of an exit button to close the menu, the name of the chore, a checkbox to mark it complete, and an button to edit the chore.
     * When the user checks the box marking it complete, the chore will take on the attributes of a completed task in both the chore list and the weekly calendar.
     * When the user clicks on the "Edit Chore" button, a pop up modal similar that is formatted the same as the create chore function will appear. The user will be able to change the name, occurence, and the roommate assignments in the modal.
     * The only things different from the Edit Chore modal from the Add Chore modal would be the title "Edit Chore" and the presence of two buttons at the bottom on opposite corners.
