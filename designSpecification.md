@@ -71,10 +71,10 @@
     * The new roommate will start out with 0 chores assigned to them.
     * The new roommate will take on the same functionality as an existing roommate.
 * Bar graph & Leaderboard
-    * When clicking on the leaderboard button in the menubar, the user will be directed to a leaderboard to compare the completion of chores between roommates
-    * The ranking will go from the roommate who completed the least chores to the one that completed the most chores
-    * A bar graph will be shown on this page with the x-axis being a roommate name and the y-axis being their completion of chores out of 100%
-        * The y-axis is the percentage of chores they've completed compared to the amount of chores they were assigned to
+    * The user can see a leaderboard to compare the completion of chores between roommates
+    * The ranking will go from the roommate who completed the most chores to the one that completed the least chores
+    * Each ranking consists of each roommates' name and a bar graph directly below it.
+    * The bar graph consists of their completion of chores out of 100% - it is the percentage of chores they have completed out of the total chores they were assigned to up to the current day.
 
 ### Points of Interaction
 &nbsp;&nbsp;&nbsp;&nbsp; This section will go over the main points of interaction a user will go over to achieve their goals in this application.
