@@ -8,12 +8,13 @@ Our software requirements are broken into a few different categories:
 ### Dashboard/General
 
 * This application will be modeled for desktop
-* Upon first opening this application, the user will be prompted to either sign up or login. The signup and login page consists of a group name, username, email, and valid password
-  * The password requires at least six alphanumeric characters
-  * The group name is needed so that multiple different houses can use this app and share chores with their respective house
-  * If a group name is taken, the user will be prompted to type in a new name
-* User authentication and data retention will be done using Firebase.
-* After login, the user will see a dashboard which consists of the main bulk of this application
+* The user will be prompted for signup or login when first opening this application
+* The signup and login page will consist of a group name, username, email, and valid password
+* The password the user creates will need to be at least six alphanumeric characters
+* The groups will be created uniquely so that each house can have their own set of respective roommates
+* The application will prompt the user for a new group name if the filled out group name is taken
+* The application will authenticate users and persist data using FireBase
+* The application will show the user a dashboard after signup/login
 
 ### Roommates / Users
 
@@ -41,9 +42,13 @@ Our software requirements are broken into a few different categories:
 
 ### Chore Card
 
-* Each roommate will have their names displayed alphabetically.
-* Under each name, the chores assigned to the roommate will be listed in cards below their name
+* A list of chore cards will be displayed alphabetically to the user
+* A list of chore cards will be listed below the roommate its assigned to
 
 ### Progression Visuals
 
-* Horizontal percent bar graphs showing tasks completed, late, and missed. Represented with green for complete, yellow for late, and red for missed
+* A horizontal bar graph will be shown to a user upon opening of a progress page
+* The horizontal bar graph will be labelled with an x-axis with labels for completed, late, and missed chores
+* The horizontal bar graph will have green represent completed chores
+* The horizontal bar graph will have yellow represent late chores
+* The horizontal bar graph will have red represent missed chores
