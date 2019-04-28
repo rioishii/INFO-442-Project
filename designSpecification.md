@@ -16,15 +16,15 @@
 &nbsp;&nbsp;&nbsp;&nbsp;This section goes over functionality inside of this application. This will go into detail about what the function is and how the user will interact to achieve this function.
 
 * Dashboard
-    * The dashboard is the only available page on our web application. It consists of three areas of funciontality: a weekly visual calendar (top right section), a chore list for each roommate (bottom right section), and a bar graph showing completion rates of all roommates (left section).
+    * This is the default page the user sees upon login. It consists of three areas of funciontality: a weekly visual calendar (top right section), a chore list for each roommate (bottom right section), and a bar graph showing completion rates of all roommates (left section).
     ![dashboard mockup](./img/dashboard.jpg)
     * This is the core overview of all chores. This will help users visualize the distribution of chores across a shared living space.
 * Weekly calendar
-    * The view of this calendar will a have weekly format, allowing users to naturally see the chores they must complete within that week. It doesn't make sense to see chores in a monthly format, since that would show the week you have to do something. This is opposed to the week view, which shows more emphasis on the day in which you have to do something.
+    * The view of this calendar will have a weekly format, allowing users to naturally see the chores they must complete within that week. It doesn't make sense to see chores in a monthly format, since that would show the week you have to do something. This is opposed to the week view, which shows more emphasis on the day in which you have to do something.
     * The name of each chore is displayed on the day that the chore is expected to by done by.
     * Chores on the calendar will be highlighted with a color. It is color-coded based on the person the chore is assigned to.
     * If a chore is completed, the color changes to a lighter shade of its original and the name of the chore will by striked through. This way completed chores will draw less attention on the calendar compared to incomplete chores.
-    * This section will also contain a button labelled "Add Chore" that when clicked, the web app provides functionality to create and assign a new chore.
+    * This section will contain a button labelled "Add Chore" that when clicked, the web app provides functionality to create and assign a new chore.
 * Create and assign chore
     * User should be able to create a chore by clicking the "Add Chore" button located in the weekly calendar section.
     * When adding a chore, a modal pops up over the dashboard with information the user must fill out.
