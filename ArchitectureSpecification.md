@@ -19,41 +19,6 @@
 
 <br/><br/>
 
-## DayView - Displays the chores that are supposed to be completed by that weekday
-* Connections:
-  * Inputs: Chore Objects
-  * Outputs: None
-### Properties
-| Name     | Type    | Description                                |
-|----------|---------|--------------------------------------------|
-| choreList| `ArrayList<Chore>` |Describes the list of chores passed into this DayView object. This choreList will be manipulated to output information for each chore. A Chore object is a JSON object pulled from the Chore Database|
-| dayOfWeek | string |Describes the day of the week this DayView represents|
-
-
-### Functionality
-| Name               | Parameters       | Return | Behavior                                             |
-|--------------------|------------------|--------|------------------------------------------------------|
-| getDayOfWeek()     | none             | string | Returns what day of the week this DayView represents |
-| displayChoreList() | none             | void   | Renders a display of the chores for this day         |
-| updateChoreList()  | `ArrayList<Chore>` | void   | Contacts database to get chores for dayOfWeek        |
-
-<br/><br/>
-
-## WeekView - Handles day changes, highlighting the current day and updating every Sunday
-* Connections:
-  * Inputs: DayView object
-  * Outputs: Displays combined DayView objects to show a DayView for each day of the week
-### Properties
-| Name     | Type    | Description                                |
-|----------|---------|--------------------------------------------|
-| week | `ArrayList<DayView> days` | Holds an array of DayView objects |
-
-### Functionality
-| Name               | Parameters       | Return | Behavior                                             |
-|--------------------|------------------|--------|------------------------------------------------------|
-| displayWeek() | none | void | Renders the WeekView, showing the a horizontal display of the days of the week in the top of the webpage |
-| highlightCurrentDay() | Date date | void   | Highlights the current day of the week in the WeekView |
-
 <br/><br/>
 
 ## UserDatabase - Takes care of storing groups, which users are in which group, and user information
