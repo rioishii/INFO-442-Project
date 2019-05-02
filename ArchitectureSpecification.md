@@ -1,6 +1,6 @@
 # Architecture Specification
 
-## Signup / Login - Handles Creating or Authenticating a User
+## SignupLoginHandler - Handles Creating or Authenticating a User
 * Connections:
   * Inputs: Username, Email, Password, Group Name
   * Outputs: User Object
@@ -37,7 +37,7 @@
 | updateChoreList()  | ArrayList<Chore> | void   | Contacts database to get chores for dayOfWeek        |
 
 <br/><br/>
-## User Database - Takes care of storing groups, which users are in which group, and user information
+## UserDatabase - Takes care of storing groups, which users are in which group, and user information
 * Connections:
   * Inputs: email, username, password, group
   * Outputs: None
@@ -50,6 +50,21 @@
 ### Functionality
 | Name               | Parameters       | Return | Behavior                                             |
 |--------------------|------------------|--------|------------------------------------------------------|
+| - | - | - | - |
+
+<br/><br/>
+## ChoreDatabase - Takes care of storing a chore name, who it’s assigned to, and when it’s due
+* Connections:
+  * Inputs: group name, chore description, due date, who the chore is assigned to
+  * Outputs: None
+### Properties
+| Name       | Type                 | Description                                  |
+|------------|----------------------|----------------------------------------------|
+| - | - | - |
+
+### Functionality
+| Name                | Parameters                          | Return               | Behavior                                                                           |
+|---------------------|-------------------------------------|----------------------|------------------------------------------------------------------------------------|
 | - | - | - | - |
 
 <br/><br/>
@@ -71,21 +86,6 @@
 |---------------------|-------------------------------------|----------------------|------------------------------------------------------------------------------------|
 | makeChoreCards()    | ArrayList<Chore> chores                   | ArrayList<ChoreCard> | Renders display of chore cards, where chore cards show the chore and when it’s due |
 | displayChoreLanes() | ArrayList<User> roommates, ArrayList<ChoreCard> choreCards | Void                 | Renders display of roommate lanes and their respective chores                      |
-
-<br/><br/>
-## Chore Database - Takes care of storing a chore name, who it’s assigned to, and when it’s due
-* Connections:
-  * Inputs: group name, chore description, due date, who the chore is assigned to
-  * Outputs: None
-### Properties
-| Name       | Type                 | Description                                  |
-|------------|----------------------|----------------------------------------------|
-| - | - | - |
-
-### Functionality
-| Name                | Parameters                          | Return               | Behavior                                                                           |
-|---------------------|-------------------------------------|----------------------|------------------------------------------------------------------------------------|
-| - | - | - | - |
 
 <br/><br/>
 ## ChoreHandler - Communicates with databases for CRUD operations
