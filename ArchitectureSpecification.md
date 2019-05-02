@@ -1,6 +1,6 @@
 # Architecture Specification
 
-## SignupLoginHandler - Handles Creating or Authenticating a User
+## SignupLoginHandler - Handles creating or authenticating a user
 * Connections:
   * Inputs: Username, Email, Password, Group Name
   * Outputs: User Object
