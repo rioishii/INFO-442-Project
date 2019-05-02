@@ -19,8 +19,6 @@
 
 <br/><br/>
 
-<br/><br/>
-
 ## UserDatabase - Takes care of storing groups, which users are in which group, and user information
 * Connections:
   * Inputs: email, username, password, group
