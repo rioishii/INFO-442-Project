@@ -26,8 +26,8 @@
 ### Properties
 | Name     | Type    | Description                                |
 |----------|---------|--------------------------------------------|
-| choreList|ArrayList<Chore>|Describes the list of chores passed into this DayView object. This choreList will be manipulated to output information for each chore. A Chore object is a JSON object pulled from the Chore Database|
-| dayOfWeek |string|Describes the day of the week this DayView represents|
+| choreList| `ArrayList<Chore>` |Describes the list of chores passed into this DayView object. This choreList will be manipulated to output information for each chore. A Chore object is a JSON object pulled from the Chore Database|
+| dayOfWeek | string |Describes the day of the week this DayView represents|
 
 
 ### Functionality
@@ -35,7 +35,7 @@
 |--------------------|------------------|--------|------------------------------------------------------|
 | getDayOfWeek()     | none             | string | Returns what day of the week this DayView represents |
 | displayChoreList() | none             | void   | Renders a display of the chores for this day         |
-| updateChoreList()  | ArrayList<Chore> | void   | Contacts database to get chores for dayOfWeek        |
+| updateChoreList()  | `ArrayList<Chore>` | void   | Contacts database to get chores for dayOfWeek        |
 
 <br/><br/>
 
@@ -46,7 +46,7 @@
 ### Properties
 | Name     | Type    | Description                                |
 |----------|---------|--------------------------------------------|
-| week | ArrayList<DayView> days | Holds an array of DayView objects |
+| week | `ArrayList<DayView> days` | Holds an array of DayView objects |
 
 ### Functionality
 | Name               | Parameters       | Return | Behavior                                             |
@@ -96,17 +96,17 @@
 ### Properties
 | Name       | Type                 | Description                                  |
 |------------|----------------------|----------------------------------------------|
-| roomates   | ArrayList<User>       | Keeps track of roommates within the group. A User object is a JSON object pulled from the User Database |
+| roomates   | `ArrayList<User>`       | Keeps track of roommates within the group. A User object is a JSON object pulled from the User Database |
 | group      | string               | Which group this dashboard is displaying for |
-| choreCards | ArrayList<ChoreCard> | List of chores in card form to be displayed  |
+| choreCards | `ArrayList<ChoreCard>` | List of chores in card form to be displayed  |
 | week       | weekView             | Keeps track of chores for week               |
 
 
 ### Functionality
 | Name                | Parameters                          | Return               | Behavior                                                                           |
 |---------------------|-------------------------------------|----------------------|------------------------------------------------------------------------------------|
-| makeChoreCards()    | ArrayList<Chore> chores                   | ArrayList<ChoreCard> | Renders display of chore cards, where chore cards show the chore and when it’s due |
-| displayChoreLanes() | ArrayList<User> roommates, ArrayList<ChoreCard> choreCards | Void                 | Renders display of roommate lanes and their respective chores                      |
+| makeChoreCards()    | `ArrayList<Chore> chores`                   | ArrayList<ChoreCard> | Renders display of chore cards, where chore cards show the chore and when it’s due |
+| displayChoreLanes() | `ArrayList<User> roommates`, `ArrayList<ChoreCard> choreCards` | Void                 | Renders display of roommate lanes and their respective chores                      |
 
 <br/><br/>
 
