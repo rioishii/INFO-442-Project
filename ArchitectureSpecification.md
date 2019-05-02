@@ -14,8 +14,8 @@
 ### Functionality
 | Name     | Parameters                            | Return      | Behavior                                 |
 |----------|---------------------------------------|-------------|------------------------------------------|
-| signUp() | Username, password, email, Group name | User Object | Creates user and puts user into database |
-| login()  | Username, password, Group name        | None        | Logs in authenticated user               |
+| signUp() | string username, string password, string email, string groupName | User Object | Creates user and puts user into database |
+| login()  | string username, string password, string groupName        | None        | Logs in authenticated user               |
 
 <br/><br/>
 ## DayView - Displays the chores that are supposed to be completed by that weekday
@@ -25,7 +25,7 @@
 ### Properties
 | Name     | Type    | Description                                |
 |----------|---------|--------------------------------------------|
-| choreList|ArrayList<Chore>|Describes the list of chores passed into this DayView object. This choreList will be manipulated to output information for each chore|
+| choreList|ArrayList<Chore>|Describes the list of chores passed into this DayView object. This choreList will be manipulated to output information for each chore. A Chore object is a JSON object pulled from the Chore Database|
 | dayOfWeek |string|Describes the day of the week this DayView represents|
 
 
@@ -60,7 +60,7 @@
 ### Properties
 | Name       | Type                 | Description                                  |
 |------------|----------------------|----------------------------------------------|
-| roomates   | ArrayList<Use>       | Keeps track of roommates within the group    |
+| roomates   | ArrayList<User>       | Keeps track of roommates within the group. A User object is a JSON object pulled from the User Database |
 | group      | string               | Which group this dashboard is displaying for |
 | choreCards | ArrayList<ChoreCard> | List of chores in card form to be displayed  |
 | week       | weekView             | Keeps track of chores for week               |
@@ -69,8 +69,8 @@
 ### Functionality
 | Name                | Parameters                          | Return               | Behavior                                                                           |
 |---------------------|-------------------------------------|----------------------|------------------------------------------------------------------------------------|
-| makeChoreCards()    | ArrayList<Chore>                    | ArrayList<ChoreCard> | Renders display of chore cards, where chore cards show the chore and when it’s due |
-| displayChoreLanes() | Roommate list, ArrayList<ChoreCard> | Void                 | Renders display of roommate lanes and their respective chores                      |
+| makeChoreCards()    | ArrayList<Chore> chores                   | ArrayList<ChoreCard> | Renders display of chore cards, where chore cards show the chore and when it’s due |
+| displayChoreLanes() | ArrayList<User> roommates, ArrayList<ChoreCard> choreCards | Void                 | Renders display of roommate lanes and their respective chores                      |
 
 <br/><br/>
 ## Chore Database - Takes care of storing a chore name, who it’s assigned to, and when it’s due
@@ -106,7 +106,7 @@
 | removeChore() | int choreID                                                                    | boolean      | Removes a chore from the Chore Database given a choreID. Returns whether or not                                                                                                                                           |
 
 <br/><br/>
-## User Handler - Handles CRUD operations roommates within a group
+## User Handler - Handles CRUD operations for users, where users are roommates or the person logging into the software
 * Connections:
   * Inputs: Operation type of CRUD, username, email, group, password
   * Outputs: None
@@ -118,10 +118,10 @@
 ### Functionality
 | Name         | Parameters                       | Return      | Behavior                                                                                                                                      |
 |--------------|----------------------------------|-------------|-----------------------------------------------------------------------------------------------------------------------------------------------|
-| getUser()    | Email, Group                     | User Object | Returns a user object based on given parameters                                                                                               |
-| addUser()    | Username, Email, Group, Password | boolean     | Adds user to database and returns success or not                                                                                              |
-| updateUser() | Email, Password                  | boolean     | Updates a user in the database based off email and password. Other arguments can be given to actually update the User. Returns success or not |
-| removeUser() | Email, Password                  | boolean     | Removes a user when credentials are given. Returns success or not                                                                             |
+| getUser()    | string email, string groupName                     | User Object | Returns a user object based on given parameters                                                                                               |
+| addUser()    | string username, string email, string groupName, string password | boolean     | Adds user to database and returns success or not                                                                                              |
+| updateUser() | string email, string password                  | boolean     | Updates a user in the database based off email and password. Other arguments can be given to actually update the User. Returns success or not |
+| removeUser() | string email, string password                  | boolean     | Removes a user when credentials are given. Returns whether successful or not                                                                             |
 
 
 
