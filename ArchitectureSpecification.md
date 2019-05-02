@@ -18,6 +18,7 @@
 | login()  | string username, string password, string groupName        | None        | Logs in authenticated user               |
 
 <br/><br/>
+
 ## DayView - Displays the chores that are supposed to be completed by that weekday
 * Connections:
   * Inputs: Chore Objects
@@ -32,11 +33,29 @@
 ### Functionality
 | Name               | Parameters       | Return | Behavior                                             |
 |--------------------|------------------|--------|------------------------------------------------------|
-| getDayOfWeek()     | None             | string | Returns what day of the week this DayView represents |
-| displayChoreList() | None             | void   | Renders a display of the chores for this day         |
+| getDayOfWeek()     | none             | string | Returns what day of the week this DayView represents |
+| displayChoreList() | none             | void   | Renders a display of the chores for this day         |
 | updateChoreList()  | ArrayList<Chore> | void   | Contacts database to get chores for dayOfWeek        |
 
 <br/><br/>
+
+## WeekView - Handles day changes, highlighting the current day and updating every Sunday
+* Connections:
+  * Inputs: DayView object
+  * Outputs: Displays combined DayView objects to show a DayView for each day of the week
+### Properties
+| Name     | Type    | Description                                |
+|----------|---------|--------------------------------------------|
+| week | ArrayList<DayView> days | Holds an array of DayView objects |
+
+### Functionality
+| Name               | Parameters       | Return | Behavior                                             |
+|--------------------|------------------|--------|------------------------------------------------------|
+| displayWeek() | none | void | Renders the WeekView, showing the a horizontal display of the days of the week in the top of the webpage |
+| highlightCurrentDay() | Date date | void   | Highlights the current day of the week in the WeekView |
+
+<br/><br/>
+
 ## UserDatabase - Takes care of storing groups, which users are in which group, and user information
 * Connections:
   * Inputs: email, username, password, group
@@ -53,6 +72,7 @@
 | - | - | - | - |
 
 <br/><br/>
+
 ## ChoreDatabase - Takes care of storing a chore name, who it’s assigned to, and when it’s due
 * Connections:
   * Inputs: group name, chore description, due date, who the chore is assigned to
@@ -68,6 +88,7 @@
 | - | - | - | - |
 
 <br/><br/>
+
 ## Dashboard - Handles storing the individual components for the user to see
 * Connections:
   * Inputs: WeekView, roommate list, chore list, group
@@ -88,6 +109,7 @@
 | displayChoreLanes() | ArrayList<User> roommates, ArrayList<ChoreCard> choreCards | Void                 | Renders display of roommate lanes and their respective chores                      |
 
 <br/><br/>
+
 ## ChoreHandler - Communicates with databases for CRUD operations
 * Connections:
   * Inputs: Operation type of CRUD, chore description, chore due date, user assigned to chore, chore ID, if chore is finished
@@ -106,6 +128,7 @@
 | removeChore() | int choreID                                                                    | boolean      | Removes a chore from the Chore Database given a choreID. Returns whether or not                                                                                                                                           |
 
 <br/><br/>
+
 ## User Handler - Handles CRUD operations for users, where users are roommates or the person logging into the software
 * Connections:
   * Inputs: Operation type of CRUD, username, email, group, password
@@ -122,7 +145,3 @@
 | addUser()    | string username, string email, string groupName, string password | boolean     | Adds user to database and returns success or not                                                                                              |
 | updateUser() | string email, string password                  | boolean     | Updates a user in the database based off email and password. Other arguments can be given to actually update the User. Returns success or not |
 | removeUser() | string email, string password                  | boolean     | Removes a user when credentials are given. Returns whether successful or not                                                                             |
-
-
-
-
