@@ -1,3 +1,5 @@
+# Specifying our Process
+
 - How will you communicate with teammates you depend on? Describe specific tools or contexts.
   - We will use Facebook Messenger to communicate with the team, and use the @user function when time is of the essence. 
   
@@ -9,7 +11,12 @@
  <hr>
 
 - Who will own each of the components in your architecture? Owning them means being responsible for writing them and making sure they are functional and correct.
-  - ???
+  - Signup/Login: Benny, Chris, Bradley
+  - User Database: Jessica
+  - Dashboard: Jessica, Chris, Bradley
+  - Chore Database: Jessica
+  - ChoreHandler: Benny and Rio
+  - UserHandler: Benny and Rio
 
  <hr>
 
