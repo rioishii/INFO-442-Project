@@ -13,7 +13,7 @@ var firebaseConfig = {
     storageBucket: "roomnchored.appspot.com",
     messagingSenderId: "148134115781",
     appId: "1:148134115781:web:40f830dc7d8eaeb7"
-  };
+};
 
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
