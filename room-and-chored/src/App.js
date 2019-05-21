@@ -1,7 +1,16 @@
 import React, { Component } from 'react';
 import './App.css';
+import firebase from 'firebase/app';
+import 'firebase/auth';
 
 export default class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      user: null,
+      loading: false
+    }
+  }
 
   componentDidMount() {
     this.authUnRegFunc = firebase.auth().onAuthStateChanged(firebaseUser => {
@@ -21,7 +30,7 @@ export default class App extends Component {
     });
   }
 
-  componentWillUnMount() {
+  componentWillUnmount() {
     this.authUnRegFunc.off();
   }
 
@@ -35,7 +44,7 @@ export default class App extends Component {
   }
 
   render() {
-    if (this.state.user !== null) {
+    if (this.state !== null && this.state.user !== null) {
       return (
         <button onClick={this.signOut}>Sign Out</button>
       )
