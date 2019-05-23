@@ -29,7 +29,18 @@ export default class App extends Component {
       }
     });
   }
-
+  handleSignUp(email, password) {
+  firebase.auth().createUserWithEmailAndPassword(email, password)
+    .then((userCredentials) => {
+        let user = userCredentials.user; //access the newly created user
+        console.log('User created: '+user.uid);
+        //...
+    })
+    .catch((error) => { //report any errors
+        console.log(error.message);
+    });
+  }
+  
   componentWillUnmount() {
     this.authUnRegFunc.off();
   }
@@ -50,6 +61,7 @@ export default class App extends Component {
       )
     } else {
       return (
+
         <button onClick={this.signIn}>Sign In</button>
       )
     }
