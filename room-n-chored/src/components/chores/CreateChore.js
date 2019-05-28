@@ -18,6 +18,7 @@ class CreateChore extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
         this.props.createChore(this.state);
+        this.props.history.push('/');
     }
 
     render() {
