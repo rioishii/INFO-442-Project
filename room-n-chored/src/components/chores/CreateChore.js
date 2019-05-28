@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { createChore } from '../../store/actions/choreActions';
+import { Redirect } from 'react-router-dom';
 
 class CreateChore extends Component {
     state = {
@@ -20,6 +21,9 @@ class CreateChore extends Component {
     }
 
     render() {
+        const { auth } = this.props;
+        if (!auth.uid) return <Redirect to='/signin' />
+
         return (
             <div>
                 <div className="container">
@@ -43,10 +47,16 @@ class CreateChore extends Component {
     }
 }
 
+const mapStateToProps = (state) => {
+    return {
+        auth: state.firebase.auth
+    }
+}
+
 const mapDispatchToProps = (dispatch) => {
     return {
         createChore: (chore) => dispatch(createChore(chore))
     }
 }
 
-export default connect(null, mapDispatchToProps)(CreateChore)
+export default connect(mapStateToProps, mapDispatchToProps)(CreateChore)

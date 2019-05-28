@@ -2,11 +2,16 @@ import React, { Component } from 'react';
 import Notifications from './Notifications';
 import ChoreList from '../chores/ChoreList';
 import { connect } from 'react-redux';
+import { firestoreConnect } from 'react-redux-firebase';
+import { compose } from 'redux';
+import { Redirect } from 'react-router-dom';
 
 class Dashboard extends Component {
     render() {
         // console.log(this.props);
-        const { chores } = this.props;
+        const { chores, auth } = this.props;
+        if (!auth.uid) return <Redirect to='/signin' />
+        
         return (
             <div className="dashboard container">
                 <div className="row">
@@ -23,9 +28,16 @@ class Dashboard extends Component {
 }
 
 const mapStateToProps = (state) => {
+    console.log(state);
     return {
-        chores: state.chore.chores
+        chores: state.firestore.ordered.chores,
+        auth: state.firebase.auth
     }
 }
 
-export default connect(mapStateToProps)(Dashboard)
+export default compose(
+    connect(mapStateToProps),
+    firestoreConnect([
+        { collection: 'chores' }
+    ])
+)(Dashboard)
