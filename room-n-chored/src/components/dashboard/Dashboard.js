@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { firestoreConnect } from 'react-redux-firebase';
 import { compose } from 'redux';
 import { Redirect } from 'react-router-dom';
+import Navbar from '../layout/Navbar';
 
 class Dashboard extends Component {
     render() {
@@ -12,9 +13,12 @@ class Dashboard extends Component {
         if (!auth.uid) return <Redirect to='/signin' />
 
         return (
-            <div className="dashboard container">
-                <div className="row">
-                    <ChoreList chores={chores} />
+            <div>
+                <Navbar />
+                <div className="dashboard container">
+                    <div className="row">
+                        <ChoreList chores={chores} />
+                    </div>
                 </div>
             </div>
         )
