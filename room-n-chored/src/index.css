@@ -44,3 +44,13 @@ input[type=password]:not(.browser-default):focus:not([readonly]) + label{
   float: right;
   margin: 25px;
 }
+
+.user-card-title {
+  text-align: center;
+}
+
+.user-card-underline {
+  margin: auto;
+  border-bottom: 1px solid #ec407a;
+  width: 50%;
+}

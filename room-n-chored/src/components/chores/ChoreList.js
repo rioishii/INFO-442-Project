@@ -1,14 +1,18 @@
 import React from 'react';
 import ChoreSummary from './ChoreSummary';
+import UserCard from './UserCard';
 
-const ChoreList = ({chores}) => {
+const ChoreList = ({chores, user}) => {
     return (
-        <div className="chore-list section">
-            { chores && chores.map(chore => {
-                return (
-                    <ChoreSummary chore={chore} key={chore.id} />
-                )
-            })}
+        <div>
+            <div className="chore-list section">
+                <UserCard user={user}/>
+                { chores && chores.map(chore => {
+                    return (
+                        <ChoreSummary chore={chore} key={chore.id} user={user}/>
+                    )
+                })}
+            </div>
         </div>
     )
 }
