@@ -46,11 +46,11 @@ class SignIn extends Component {
                             <h4>Welcome!</h4>
                             <br></br>
                             <div className="input-field">
-                                <label htmlFor="email">Email</label>
+                                <label htmlFor="email" style={{color: 'rgba(25, 96, 140, 0.8)'}}>Email</label>
                                 <input type="email" id="email" onChange={this.handleChange}/>
                             </div>
                             <div className="input-field">
-                                <label htmlFor="password">Password</label>
+                                <label htmlFor="password" style={{color: 'rgba(25, 96, 140, 0.8)'}}>Password</label>
                                 <input type="password" id="password" onChange={this.handleChange}/>
                             </div>
                             <div className="input-field">
