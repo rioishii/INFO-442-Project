@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useReducer } from 'react';
 import moment from 'moment';
 import { getFirestore } from 'redux-firestore';
 import Button from '@material-ui/core/Button';
@@ -32,8 +32,11 @@ class ChoreSummary extends Component {
 
     render() {
         let chore = this.props.chore;
-        return (
-            <div className="card z-depth chore-summary">
+        let user = this.props.user;
+        let content;
+        if (chore.authorFirstName === user.firstName && chore.authorLastName === user.lastName) {
+            content = (
+                <div className="card z-depth chore-summary">
                 <button id="deleteChoreBtn" onClick={this.toggle}>&times;</button>
                 <div className="card-content grey-text text-darken-3">
                     <span className="card-title">{chore.title}</span>
@@ -57,7 +60,11 @@ class ChoreSummary extends Component {
                     </DialogActions>
                 </Dialog>
             </div>
-        )
+            )
+        } else {
+            content = <div></div>
+        }
+        return (content)
     }
 }
 

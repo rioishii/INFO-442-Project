@@ -16,5 +16,15 @@ export const createChore = (chore) => {
             dispatch({ type: 'CREATE_CHORE_ERROR', err });
         })
         
+        // Updating chore count for each user
+        firestore.collection('users').doc(authorId).get()
+            .then(snapshot => {
+                return snapshot.data().choreCount + 1;
+            }).then(choreCount => {
+                firestore.collection('users').doc(authorId).update({
+                    choreCount
+                });
+                // console.log(choreCount);
+            });
     }
 }
