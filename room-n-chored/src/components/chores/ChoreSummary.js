@@ -24,9 +24,18 @@ class ChoreSummary extends Component {
         }));
     }
 
-    deleteChore = (choreId) => {
+    deleteChore = (choreId, userId) => {
         const firestore = getFirestore();
         firestore.collection('chores').doc(choreId).delete();
+        firestore.collection('users').doc(userId).get()
+            .then(snapshot => {
+                return snapshot.data().choreCount - 1;
+            }).then(choreCount => {
+                firestore.collection('users').doc(userId).update({
+                    choreCount
+                });
+                // console.log('Chore successfully deleted!');
+            });
         this.toggle();
     }
 
@@ -54,7 +63,7 @@ class ChoreSummary extends Component {
                         <Button onClick={this.toggle}>
                             No
                         </Button>
-                        <Button onClick={choreId => this.deleteChore(chore.id)}>
+                        <Button onClick={(choreId, userId) => this.deleteChore(chore.id, chore.authorId)}>
                             Yes
                         </Button>
                     </DialogActions>
