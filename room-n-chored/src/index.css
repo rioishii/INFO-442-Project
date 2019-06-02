@@ -1,11 +1,25 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+  height: 100vh;
+  width: 100vw;
+
+  font-family: 'Caslon Pro'; /*-apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-color: #ec407a;
+  -moz-osx-font-smoothing: grayscale;*/
+  src: local('Caslon Pro'), url('./fonts/Adobe Caslon Pro Regular.ttf') format('ttf');
+  background-color: rgb(255, 249, 239);
+}
+
+body > * {
+  height: 100vh;
+  width: 100vw;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Caslon Pro Bold';
+  src: local('Caslon Pro Bold'), url('/fonts/Adobe Caslon Pro Bold.ttf') format('ttf');
 }
 
 form {
@@ -22,11 +36,56 @@ code {
     monospace;
 }
 
+.flex-container {
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  height: 100vh;
+  width: 100vw;
+}
+
+.flex-container > * {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-container > *:nth-child(1) {
+  flex-basis: 33%;
+  flex-grow: 1;
+  color: rgb(255, 249, 239);
+  background-color: rgb(25, 96, 140);
+}
+
+.flex-container > *:nth-child(2) {
+  flex-basis: 66%;
+  flex-grow: 1;
+  color: rgb(25, 96, 140);
+  background-color: rgb(255, 249, 239);
+}
+
+.flex-container form {
+  margin: 0px;
+  width: 60%;
+  min-width: 200px;
+  color: rgb(25, 96, 140);
+  background-color: rgb(255, 249, 239);
+  text-align: center;
+}
+
+button {
+  color: rgb(255, 249, 239);
+  background-color: rgb(25, 96, 140);
+}
+
 input[type=text]:not(.browser-default):focus:not([readonly]),
 input[type=email]:not(.browser-default):focus:not([readonly]),
 input[type=password]:not(.browser-default):focus:not([readonly]),
 textarea.materialize-textarea:focus:not([readonly]){
-  border-color: #ec407a;
+  border-color: rgb(25, 96, 140);
   box-shadow: none;
 }
 
@@ -34,7 +93,7 @@ input[type=text]:not(.browser-default):focus:not([readonly]) + label,
 textarea.materialize-textarea:focus:not([readonly]) + label,
 input[type=email]:not(.browser-default):focus:not([readonly]) + label,
 input[type=password]:not(.browser-default):focus:not([readonly]) + label{
-  color: #ec407a !important;
+  color: rgb(25, 96, 140) !important;
 }
 
 #deleteChoreBtn {
