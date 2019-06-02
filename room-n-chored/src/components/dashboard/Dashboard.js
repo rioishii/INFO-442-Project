@@ -9,15 +9,23 @@ import Navbar from '../layout/Navbar';
 class Dashboard extends Component {
     render() {
         // console.log(this.props);
-        const { chores, auth } = this.props;
+        const { chores, users, auth } = this.props;
         if (!auth.uid) return <Redirect to='/signin' />
-
+        let userAndChores = [];
+        if (users && users.forEach(user => {
+            userAndChores.push(
+                // "key" was put in here to put away warnings in Google Chrome console
+                <div className="col s4" key={user.id}> 
+                    <ChoreList chores={chores} user={user}/>
+                </div>
+            )
+        }));
         return (
             <div>
                 <Navbar />
                 <div className="dashboard container">
                     <div className="row">
-                        <ChoreList chores={chores} />
+                        {userAndChores}
                     </div>
                 </div>
             </div>
@@ -26,8 +34,9 @@ class Dashboard extends Component {
 }
 
 const mapStateToProps = (state) => {
-    console.log(state);
+    // console.log(state);
     return {
+        users: state.firestore.ordered.users,
         chores: state.firestore.ordered.chores,
         auth: state.firebase.auth
     }
@@ -36,6 +45,9 @@ const mapStateToProps = (state) => {
 export default compose(
     connect(mapStateToProps),
     firestoreConnect([
-        { collection: 'chores', orderBy: ['createdAt', 'desc'] }
+        { collection: 'users', orderBy: ['choreCount', 'desc'] }
+    ]),
+    firestoreConnect([
+        {collection: 'chores', orderBy: ['createdAt', 'desc']}
     ])
 )(Dashboard)
