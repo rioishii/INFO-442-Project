@@ -1,6 +1,7 @@
 body {
   margin: 0;
-  overflow: auto;
+  height: 100vh;
+  width: 100vw;
 
   font-family: 'Caslon Pro'; /*-apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
@@ -9,6 +10,11 @@ body {
   -moz-osx-font-smoothing: grayscale;*/
   src: local('Caslon Pro'), url('./fonts/Adobe Caslon Pro Regular.ttf') format('ttf');
   background-color: rgb(255, 249, 239);
+}
+
+body > * {
+  height: 100vh;
+  width: 100vw;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -31,6 +37,7 @@ code {
 }
 
 .flex-container {
+  margin: 0;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;

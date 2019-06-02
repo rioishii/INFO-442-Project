@@ -29,7 +29,7 @@ class SignUp extends Component {
 
         return (
             <div>
-                <div className="container flex-container">
+                <div className="flex-container">
                     <div>
                         <h3 style={{margin: '0px 10px 0px 5px', whiteSpace: 'nowrap'}}>Room & Chored</h3>
                         <p style={{margin: '0px'}}>Making sure everyone does their fair share.</p>
