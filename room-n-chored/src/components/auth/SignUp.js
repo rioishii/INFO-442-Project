@@ -29,7 +29,7 @@ class SignUp extends Component {
 
         return (
             <div>
-                <div className="flex-container">
+                <div id="auth-flex">
                     <div>
                         <h3 className="side-margins wrapless">Room & Chored</h3>
                         <p className="marginless">Making sure everyone does their fair share.</p>

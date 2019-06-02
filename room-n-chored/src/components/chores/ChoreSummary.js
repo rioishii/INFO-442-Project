@@ -46,28 +46,38 @@ class ChoreSummary extends Component {
         if (chore.authorFirstName === user.firstName && chore.authorLastName === user.lastName) {
             content = (
                 <div className="card z-depth chore-summary">
-                <button id="deleteChoreBtn" onClick={this.toggle}>&times;</button>
-                <div className="card-content grey-text text-darken-3">
-                    <span className="card-title">{chore.title}</span>
-                    <p>Posted by {chore.authorFirstName} {chore.authorLastName}</p>
-                    <p className="grey-text">{moment(chore.createdAt.toDate()).calendar()}</p>
-                </div>
-                <Dialog open={this.state.open}>
-                    <DialogTitle id="alert-dialog-title">{"Confirmation"}</DialogTitle>
-                    <DialogContent>
-                        <DialogContentText>
-                            Are you sure you want to delete this chore?
-                        </DialogContentText>
-                    </DialogContent>
-                    <DialogActions>
-                        <Button onClick={this.toggle}>
-                            No
-                        </Button>
-                        <Button onClick={(choreId, userId) => this.deleteChore(chore.id, chore.authorId)}>
-                            Yes
-                        </Button>
-                    </DialogActions>
-                </Dialog>
+                    <button id="deleteChoreBtn" onClick={this.toggle}>
+                        &times;
+                    </button>
+                    <div className="card-content grey-text text-darken-3">
+                        <span className="card-title">
+                            {chore.title}
+                        </span>
+                        <p>
+                            Posted by {chore.authorFirstName} {chore.authorLastName}
+                        </p>
+                        <p className="grey-text">
+                            {moment(chore.createdAt.toDate()).calendar()}
+                        </p>
+                    </div>
+                    <Dialog open={this.state.open}>
+                        <DialogTitle id="alert-dialog-title">
+                            {"Confirmation"}
+                        </DialogTitle>
+                        <DialogContent>
+                            <DialogContentText>
+                                Are you sure you want to delete this chore?
+                            </DialogContentText>
+                        </DialogContent>
+                        <DialogActions>
+                            <Button onClick={this.toggle}>
+                                No
+                            </Button>
+                            <Button onClick={(choreId, userId) => this.deleteChore(chore.id, chore.authorId)}>
+                                Yes
+                            </Button>
+                        </DialogActions>
+                    </Dialog>
                 </div>
             )
         } else {

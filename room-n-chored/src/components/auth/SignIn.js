@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { signIn } from '../../store/actions/authActions';
-import { Redirect } from 'react-router-dom';
-import { NavLink } from 'react-router-dom';
+import { Redirect, NavLink } from 'react-router-dom';
 
 class SignIn extends Component {
     state = {
@@ -27,7 +26,7 @@ class SignIn extends Component {
 
         return (
             <div>
-                <div className="flex-container">
+                <div id="auth-flex">
                     <div>
                         <h3 className="side-margins wrapless">Room & Chored</h3>
                         <p className="marginless">Making sure everyone does their fair share.</p>

@@ -24,7 +24,7 @@ h1, h2, h3, h4, h5, h6 {
 
 form {
   padding: 20px;
-  margin-top: 60px;
+  margin: 0px;
 }
 
 form button, form h5 {
@@ -36,7 +36,7 @@ code {
     monospace;
 }
 
-.flex-container {
+#auth-flex {
   margin: 0;
   display: flex;
   flex-direction: row;
@@ -46,7 +46,7 @@ code {
   width: 100vw;
 }
 
-.flex-container > * {
+#auth-flex > * {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -54,27 +54,65 @@ code {
   height: 100vh;
 }
 
-.flex-container > *:nth-child(1) {
+#auth-flex > *:nth-child(1) {
   flex-basis: 33%;
   flex-grow: 1;
   color: rgb(255, 249, 239);
   background-color: rgb(25, 96, 140);
 }
 
-.flex-container > *:nth-child(2) {
+#auth-flex > *:nth-child(2) {
   flex-basis: 66%;
   flex-grow: 1;
   color: rgb(25, 96, 140);
   background-color: rgb(255, 249, 239);
 }
 
-.flex-container form {
+#auth-flex form {
   margin: 0px;
   width: 60%;
   min-width: 200px;
   color: rgb(25, 96, 140);
   background-color: rgb(255, 249, 239);
   text-align: center;
+}
+
+#chore-flex {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  height: 100vh;
+  width: 100vw;
+}
+
+#chore-flex > *:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+}
+
+#chore-flex form {
+  margin-bottom: 60px;
+  width: 60%;
+  min-width: 300px;
+  color: rgb(25, 96, 140);
+  background-color: rgb(255, 249, 239);
+  text-align: center;
+}
+
+#button-flex {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+#button-flex > * {
+  flex-basis: 50%;
+  flex-grow: 1;
 }
 
 input[type=text]:not(.browser-default):focus:not([readonly]),

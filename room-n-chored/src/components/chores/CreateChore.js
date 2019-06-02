@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { createChore } from '../../store/actions/choreActions';
-import { Redirect } from 'react-router-dom';
+import { Redirect, NavLink } from 'react-router-dom';
+import Navbar from '../layout/Navbar';
+
 
 class CreateChore extends Component {
     state = {
@@ -26,20 +28,28 @@ class CreateChore extends Component {
         if (!auth.uid) return <Redirect to='/signin' />
 
         return (
-            <div>
-                <div className="container">
-                    <form onSubmit={this.handleSubmit} className="white">
-                        <h5 className="grey-text text-darken-3">Create New Chore</h5>
+            <div id="chore-flex">
+                <Navbar />
+                <div>
+                    <form onSubmit={this.handleSubmit}>
+                        <h4>Create New Chore</h4>
                         <div className="input-field">
-                            <label htmlFor="title">Title</label>
-                            <input type="text" id="title" onChange={this.handleChange}/>
+                            <label className="blue-trans-txt" htmlFor="title">Title</label>
+                            <input type="text" id="title" className="unfocused-input" onChange={this.handleChange}/>
                         </div>
                         <div className="input-field">
-                            <label htmlFor="content">Chore Content</label>
-                            <textarea id="content" className="materialize-textarea" onChange={this.handleChange}></textarea>
+                            <label className="blue-trans-txt" htmlFor="content">Chore Content</label>
+                            <textarea id="content" className="materialize-textarea unfocused-input" onChange={this.handleChange}></textarea>
                         </div>
-                        <div className="input-field">
-                            <button className="btn pink lighten-1 z-depth-0">Create</button>
+                        <div id="button-flex" className="input-field">
+                            <NavLink to='/'>
+                                <button className="btn lighten-1 z-depth-0 blue-txt cream-bg blue-border marginless">
+                                    Cancel
+                                </button>
+                            </NavLink>
+                            <button className="btn lighten-1 z-depth-0 cream-txt blue-bg marginless">
+                                Create
+                            </button>
                         </div>
                     </form>
                 </div>
