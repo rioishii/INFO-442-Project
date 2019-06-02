@@ -68,7 +68,7 @@ class ChoreSummary extends Component {
                         </Button>
                     </DialogActions>
                 </Dialog>
-            </div>
+                </div>
             )
         } else {
             content = <div></div>
