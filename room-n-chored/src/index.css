@@ -24,7 +24,7 @@ h1, h2, h3, h4, h5, h6 {
 
 form {
   padding: 20px;
-  margin-top: 60px;
+  margin: 0px;
 }
 
 form button, form h5 {
@@ -36,7 +36,7 @@ code {
     monospace;
 }
 
-.flex-container {
+#auth-flex {
   margin: 0;
   display: flex;
   flex-direction: row;
@@ -46,28 +46,29 @@ code {
   width: 100vw;
 }
 
-.flex-container > * {
+#auth-flex > * {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  height: 100vh;
 }
 
-.flex-container > *:nth-child(1) {
+#auth-flex > *:nth-child(1) {
   flex-basis: 33%;
   flex-grow: 1;
   color: rgb(255, 249, 239);
   background-color: rgb(25, 96, 140);
 }
 
-.flex-container > *:nth-child(2) {
+#auth-flex > *:nth-child(2) {
   flex-basis: 66%;
   flex-grow: 1;
   color: rgb(25, 96, 140);
   background-color: rgb(255, 249, 239);
 }
 
-.flex-container form {
+#auth-flex form {
   margin: 0px;
   width: 60%;
   min-width: 200px;
@@ -76,16 +77,50 @@ code {
   text-align: center;
 }
 
-button {
-  color: rgb(255, 249, 239);
-  background-color: rgb(25, 96, 140);
+#chore-flex {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  height: 100vh;
+  width: 100vw;
+}
+
+#chore-flex > *:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+}
+
+#chore-flex form {
+  margin-bottom: 60px;
+  width: 60%;
+  min-width: 300px;
+  color: rgb(25, 96, 140);
+  background-color: rgb(255, 249, 239);
+  text-align: center;
+}
+
+#button-flex {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+#button-flex > * {
+  flex-basis: 50%;
+  flex-grow: 1;
 }
 
 input[type=text]:not(.browser-default):focus:not([readonly]),
 input[type=email]:not(.browser-default):focus:not([readonly]),
 input[type=password]:not(.browser-default):focus:not([readonly]),
 textarea.materialize-textarea:focus:not([readonly]){
-  border-color: rgb(25, 96, 140);
+  color: rgb(25, 96, 140);
+  border-color: rgb(25, 96, 140) !important;
   box-shadow: none;
 }
 
@@ -97,11 +132,16 @@ input[type=password]:not(.browser-default):focus:not([readonly]) + label{
 }
 
 #deleteChoreBtn {
-  border-radius: 30px;
-  border-color: #ec407a;
-  font-size: 20px;
+  color: rgb(25, 96, 140);
+  border-width: 0px;
+  font-size: 25px;
   float: right;
-  margin: 25px;
+  margin: 3px;
+}
+
+#deleteChoreBtn:hover {
+  color: rgba(25, 96, 140, 0.6);
+  cursor: pointer;
 }
 
 .user-card-title {
@@ -110,6 +150,55 @@ input[type=password]:not(.browser-default):focus:not([readonly]) + label{
 
 .user-card-underline {
   margin: auto;
-  border-bottom: 1px solid #ec407a;
+  border-bottom: 1px solid rgb(25, 96, 140);
   width: 50%;
+}
+
+.unfocused-input {
+  color: rgba(25, 96, 140, 0.8);
+  border-bottom-color: rgba(25, 96, 140, 0.6) !important;
+}
+
+.card {
+  border-radius: 2px;
+}
+
+.blue-bg {
+  background-color: rgb(25, 96, 140) !important;
+}
+
+.blue-txt {
+  color: rgb(25, 96, 140) !important;
+}
+
+.blue-trans-txt {
+  color: rgba(25, 96, 140, 0.8) !important;
+}
+
+.cream-bg {
+  background-color: rgb(255, 249, 239) !important;
+}
+
+.cream-txt {
+  color: rgb(255, 249, 239) !important;
+}
+
+.side-margins {
+  margin: 0px 10px;
+}
+
+.marginless {
+  margin: 0px;
+}
+
+.wrapless {
+  white-space: nowrap;
+}
+
+.width-40 {
+  width: 40%;
+}
+
+.width-100 {
+  width: 100%;
 }
