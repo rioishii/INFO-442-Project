@@ -3,12 +3,18 @@ import { connect } from 'react-redux';
 import { createChore } from '../../store/actions/choreActions';
 import { Redirect, NavLink } from 'react-router-dom';
 import Navbar from '../layout/Navbar';
+import { MuiPickersUtilsProvider, DatePicker } from '@material-ui/pickers';
+import MomentUtils from '@date-io/moment';
 
 
 class CreateChore extends Component {
-    state = {
-        title: '',
-        content: ''
+    constructor(props) {
+        super(props);
+        this.state = {
+            title: '',
+            content: '',
+            date: new Date()
+        }
     }
 
     handleChange = (e) => {
@@ -23,6 +29,13 @@ class CreateChore extends Component {
         this.props.history.push('/');
     }
 
+    handleDateChange = (e) => {
+        let date = e.toDate();
+        this.setState({
+            date
+        })
+    }
+
     render() {
         const { auth } = this.props;
         if (!auth.uid) return <Redirect to='/signin' />
@@ -35,11 +48,17 @@ class CreateChore extends Component {
                         <h4>Create New Chore</h4>
                         <div className="input-field">
                             <label className="blue-trans-txt" htmlFor="title">Title</label>
-                            <input type="text" id="title" className="unfocused-input" onChange={this.handleChange}/>
+                            <input type="text" id="title" className="unfocused-input" onChange={this.handleChange} />
                         </div>
                         <div className="input-field">
-                            <label className="blue-trans-txt" htmlFor="content">Chore Content</label>
-                            <textarea id="content" className="materialize-textarea unfocused-input" onChange={this.handleChange}></textarea>
+                            <MuiPickersUtilsProvider utils={MomentUtils}>
+                                <DatePicker
+                                    label="Select Due Date"
+                                    value={this.state.date}
+                                    onChange={date => this.handleDateChange(date)}
+                                    minDate={new Date()}
+                                />
+                            </MuiPickersUtilsProvider>
                         </div>
                         <div id="button-flex" className="input-field">
                             <NavLink to='/'>
