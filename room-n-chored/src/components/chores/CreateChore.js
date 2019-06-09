@@ -12,7 +12,6 @@ class CreateChore extends Component {
         super(props);
         this.state = {
             title: '',
-            content: '',
             date: new Date()
         }
     }

@@ -53,6 +53,11 @@ class ChoreSummary extends Component {
                         <span className="card-title">
                             {chore.title}
                         </span>
+                        <span className="card-title">
+                            Due By: 
+                            <br></br>
+                            {moment(chore.date.toDate()).format('dddd, LL')}
+                        </span>
                         <p>
                             Posted by {chore.authorFirstName} {chore.authorLastName}
                         </p>
