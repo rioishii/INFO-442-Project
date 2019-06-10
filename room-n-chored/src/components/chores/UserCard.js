@@ -6,6 +6,7 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import { getFirestore } from 'redux-firestore';
+import firebase from 'firebase/app';
 
 export default class UserCard extends Component {
     constructor(props) {
@@ -25,7 +26,14 @@ export default class UserCard extends Component {
 
     deleteUser = (userId) => {
         const firestore = getFirestore();
-        firestore.collection('users').doc(userId).delete();
+        let auth = this.props.auth;
+        if (userId === auth.uid) {
+            firebase.auth().signOut().then(() => {
+                firestore.collection('users').doc(userId).delete();
+            });
+        } else {
+            firestore.collection('users').doc(userId).delete();
+        }
     }
 
     render() {

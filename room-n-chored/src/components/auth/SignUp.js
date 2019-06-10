@@ -3,7 +3,6 @@ import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { signUp } from '../../store/actions/authActions';
 import { NavLink } from 'react-router-dom';
-import { getFirestore } from 'redux-firestore';
 
 class SignUp extends Component {
     state = {
