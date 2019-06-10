@@ -56,6 +56,7 @@ class ChoreSummary extends Component {
 
     render() {
         let chore = this.props.chore;
+        console.log(chore.firstName);
         let user = this.props.user;
         let content;
         // chore must match with the author's first and last name, and chore must not be complete
@@ -78,10 +79,10 @@ class ChoreSummary extends Component {
                             {moment(chore.date.toDate()).format('dddd, LL')}
                         </span>
                         <p>
-                            Posted by {chore.authorFirstName} {chore.authorLastName}
+                            Posted by: {chore.authorFirstName} {chore.authorLastName}
                         </p>
                         <p className="grey-text">
-                            {moment(chore.createdAt.toDate()).calendar()}
+                            Created: {moment(chore.createdAt.toDate()).calendar()}
                         </p>
                     </div>
 

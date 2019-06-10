@@ -14,7 +14,7 @@ const ChoreList = ({chores, user, auth}) => {
         <div>
             <div className="chore-list section">
                 {/* comment out currHouseName === true if not working right */}
-                { currHouseName === true && <UserCard user={user}/> } 
+                { <UserCard user={user}/> } 
                 { chores && chores.map(chore => {
                     return (
                         <ChoreSummary chore={chore} key={chore.id} user={user}/>
