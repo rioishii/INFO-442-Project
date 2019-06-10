@@ -21,7 +21,11 @@ class SignUp extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        this.props.signUp(this.state);
+        if (this.state.houseName.length > 50) {
+            window.alert('House name is too long!');
+        } else {
+            this.props.signUp(this.state);
+        }
     }
 
     render() {
