@@ -72,8 +72,8 @@ class CreateChore extends Component {
                         </div>
                         <div className="input-field">
                             <label className="blue-trans-txt" htmlFor="title">Due Date</label>
-                            <MuiPickersUtilsProvider utils={MomentUtils}>
-                                <DatePicker
+                            <MuiPickersUtilsProvider className="width-40" utils={MomentUtils}>
+                                <DatePicker className="width-40"
                                     value={this.state.date}
                                     onChange={date => this.handleDateChange(date)}
                                     minDate={new Date()}
@@ -82,7 +82,7 @@ class CreateChore extends Component {
                         </div>
                         <div className="input-field">
                             <label className="blue-trans-txt" htmlFor="title">Assign To</label>
-                            <FormControl>
+                            <FormControl className="underline width-40">
                                 <InputLabel htmlFor="assigned">Name</InputLabel>
                                 <Select
                                     value={this.state.assigned}
@@ -96,15 +96,16 @@ class CreateChore extends Component {
                                 </Select>
                             </FormControl>
                         </div>
+                        <br></br>
                         <div id="button-flex" className="input-field">
+                            <button className="btn lighten-1 z-depth-0 cream-txt blue-bg marginless">
+                                Create
+                            </button>
                             <NavLink to='/'>
                                 <button className="btn lighten-1 z-depth-0 blue-txt cream-bg blue-border marginless">
                                     Cancel
                                 </button>
                             </NavLink>
-                            <button className="btn lighten-1 z-depth-0 cream-txt blue-bg marginless">
-                                Create
-                            </button>
                         </div>
                     </form>
                 </div>

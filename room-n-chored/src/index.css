@@ -161,7 +161,7 @@ input[type=password]:not(.browser-default):focus:not([readonly]) + label{
 }
 
 .unfocused-input {
-  color: rgba(25, 96, 140, 0.8);
+  color: rgba(25, 96, 140, 0.8) !important;
   border-bottom-color: rgba(25, 96, 140, 0.6) !important;
 }
 
@@ -207,4 +207,21 @@ input[type=password]:not(.browser-default):focus:not([readonly]) + label{
 
 .width-100 {
   width: 100%;
+}
+
+.MuiFormControl-root, .MuiTextField-root, .MuiInputBase-root, .MuiInput-root, .MuiInput-underline, .MuiInputBase-formControl, .MuiInput-formControl, .MuiInpusBase-input, .MuiInput-input {
+  color: rgb(25, 96, 140) !important;
+  border-bottom-color: rgba(25, 96, 140, 0.6) !important;
+}
+
+.MuiInput-underline::before, .MuiInput-underline::after {
+  border-bottom: none !important;
+}
+
+.MuiFormLabel-root, .MuiFormLabel-filled, .MuiInputLabel-root, .MuiInputLabel-formControl, .MuiInputLabel-animated, .MuiInputLabel-shrink {
+  color: rgba(25, 96, 140, 0.8) !important;
+}
+
+.underline {
+  border-bottom: 1px solid rgba(25, 96, 140, 0.6) !important;
 }
