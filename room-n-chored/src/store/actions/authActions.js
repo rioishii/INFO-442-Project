@@ -33,6 +33,28 @@ export const signUp = (newUser) => {
             newUser.email,
             newUser.password
         ).then((resp) => {
+            // add user into the house if the house already exists
+            let houseNames = {};
+            firestore.collection('houses').get()
+                .then(snapshot => {
+                    snapshot.docs.forEach(doc => {
+                        houseNames[doc.data().houseName] = doc.id;
+                    });
+                }).then(() => {
+                    if (Object.keys(houseNames).includes(newUser.houseName)) {
+                        firestore.collection('houses').doc(houseNames[newUser.houseName]).get()
+                            .then(snapshot => {
+                                return snapshot.data().roommates;
+                            }).then(roommates => {
+                                let updatedList = roommates;
+                                updatedList.push(resp.user.uid);
+                                firestore.collection('houses').doc(houseNames[newUser.houseName]).update({
+                                    roommates: updatedList
+                                });
+                            });
+                    }
+                });
+
             return firestore.collection('users').doc(resp.user.uid).set({
                 firstName: newUser.firstName,
                 lastName: newUser.lastName,

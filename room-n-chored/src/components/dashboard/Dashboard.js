@@ -8,7 +8,6 @@ import Navbar from '../layout/Navbar';
 
 class Dashboard extends Component {
     render() {
-        // console.log(this.props);
         const { chores, users, auth } = this.props;
         if (!auth.uid) return <Redirect to='/signin' />
         let userAndChores = [];
@@ -34,7 +33,6 @@ class Dashboard extends Component {
 }
 
 const mapStateToProps = (state) => {
-    console.log(state);
     return {
         users: state.firestore.ordered.users,
         chores: state.firestore.ordered.chores,
