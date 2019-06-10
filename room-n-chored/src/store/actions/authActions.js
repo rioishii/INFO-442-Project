@@ -52,6 +52,11 @@ export const signUp = (newUser) => {
                                     roommates: updatedList
                                 });
                             });
+                    } else {
+                        firestore.collection('houses').add({
+                            houseName: newUser.houseName,
+                            roommates: [resp.user.uid]
+                        });
                     }
                 });
 
