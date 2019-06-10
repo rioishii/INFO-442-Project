@@ -7,12 +7,11 @@ Our software requirements are broken into a few different categories:
 
 ### Sign Up / Log In
 
-* The user must be able to create a group.
-* The user must be able to sign up with an existing group.
-* Users with an existing account must be able log in.
-* The signup and login page will consist of a group name, username, email, and
-valid password
-* The group name created must be within 50 UTF-8 characters.
+* The user must be able to create a group. COMPLETE
+* The user must be able to sign up with an existing group. COMPLETE
+* Users with an existing account must be able log in. COMPLETE
+* The signup and login page will consist of a group name, username, email, and valid password COMPLETE
+* The group name created must be within 50 UTF-8 characters. COMPLETE
 * Group names must be unique across the whole system.
 * Software must notify user if their inputted group name is already taken.
 * Software must prompt user to input a new group name if their inputted group
