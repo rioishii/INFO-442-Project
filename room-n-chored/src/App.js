@@ -9,7 +9,7 @@ import History from './components/history/History';
 class App extends Component {
     render() {
         return (
-            <BrowserRouter>
+            <BrowserRouter basename={process.env.PUBLIC_URL}>
                 <div className="App">
                     <Switch>
                         <Route exact path='/' component={Dashboard} />
