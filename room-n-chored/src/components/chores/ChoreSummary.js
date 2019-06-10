@@ -12,15 +12,23 @@ class ChoreSummary extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            open: false
+            open: false,
+            completeModalOpen: false
         }
 
         this.toggle = this.toggle.bind(this);
+        this.toggleCompleteModal = this.toggleCompleteModal.bind(this);
     }
 
     toggle() {
         this.setState(prevState => ({
             open: !prevState.open
+        }));
+    }
+
+    toggleCompleteModal() {
+        this.setState(prevState => ({
+            completeModalOpen: !prevState.completeModalOpen
         }));
     }
 
@@ -39,13 +47,24 @@ class ChoreSummary extends Component {
         this.toggle();
     }
 
+    completeChore = (choreId, userId) => {
+        const firestore = getFirestore();
+        firestore.collection('chores').doc(choreId).update({
+            complete: true
+        });
+    }
+
     render() {
         let chore = this.props.chore;
         let user = this.props.user;
         let content;
-        if (chore.authorFirstName === user.firstName && chore.authorLastName === user.lastName) {
+        // chore must match with the author's first and last name, and chore must not be complete
+        if (chore.authorFirstName === user.firstName && chore.authorLastName === user.lastName && !chore.complete) {
             content = (
                 <div className="card z-depth chore-summary">
+                    <button id="completeChoreBtn" onClick={this.toggleCompleteModal}>
+                        &#10003;
+                    </button>
                     <button id="deleteChoreBtn" onClick={this.toggle}>
                         &times;
                     </button>
@@ -65,6 +84,8 @@ class ChoreSummary extends Component {
                             {moment(chore.createdAt.toDate()).calendar()}
                         </p>
                     </div>
+
+                    {/* Deletion dialog */}
                     <Dialog open={this.state.open}>
                         <DialogTitle id="alert-dialog-title">
                             {"Confirmation"}
@@ -79,6 +100,26 @@ class ChoreSummary extends Component {
                                 No
                             </Button>
                             <Button onClick={(choreId, userId) => this.deleteChore(chore.id, chore.authorId)}>
+                                Yes
+                            </Button>
+                        </DialogActions>
+                    </Dialog>
+
+                    {/* Completion dialog */}
+                    <Dialog open={this.state.completeModalOpen}>
+                        <DialogTitle id="alert-dialog-title">
+                            {"Confirmation"}
+                        </DialogTitle>
+                        <DialogContent>
+                            <DialogContentText>
+                                Are you sure this chore is completed?
+                            </DialogContentText>
+                        </DialogContent>
+                        <DialogActions>
+                            <Button onClick={this.toggleCompleteModal}>
+                                No
+                            </Button>
+                            <Button onClick={(choreId, userId) => this.completeChore(chore.id, chore.authorId)}>
                                 Yes
                             </Button>
                         </DialogActions>
