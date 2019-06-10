@@ -1,5 +1,6 @@
 {
   "name": "room-n-chored",
+  "homepage": "https://co-op-dev.github.io/INFO-442-Project/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -7,6 +8,7 @@
     "@material-ui/core": "^4.0.1",
     "@material-ui/pickers": "^3.1.0",
     "firebase": "^6.0.4",
+    "gh-pages": "^2.0.1",
     "moment": "^2.24.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
@@ -22,7 +24,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "npm run build&&gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
