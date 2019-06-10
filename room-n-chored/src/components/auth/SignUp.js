@@ -9,7 +9,8 @@ class SignUp extends Component {
         email: '',
         password: '',
         firstName: '',
-        lastName: ''
+        lastName: '',
+        houseName: ''
     }
 
     handleChange = (e) => {
@@ -62,6 +63,10 @@ class SignUp extends Component {
                             <div className="input-field">
                                 <label className="blue-trans-txt" htmlFor="password">Password</label>
                                 <input type="password" id="password" className="unfocused-input" onChange={this.handleChange}/>
+                            </div>
+                            <div className="input-field">
+                                <label className="blue-trans-txt" htmlFor="houseName">House Name</label>
+                                <input type="text" id="houseName" className="unfocused-input" onChange={this.handleChange}/>
                             </div>
                             <div className="input-field">
                                 <button className="btn lighten-1 z-depth-0 cream-txt blue-bg width-100">
