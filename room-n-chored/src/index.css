@@ -131,7 +131,7 @@ input[type=password]:not(.browser-default):focus:not([readonly]) + label{
   color: rgb(25, 96, 140) !important;
 }
 
-#deleteChoreBtn {
+#deleteChoreBtn, #completeChoreBtn {
   color: rgb(25, 96, 140);
   border-width: 0px;
   font-size: 25px;
@@ -139,7 +139,7 @@ input[type=password]:not(.browser-default):focus:not([readonly]) + label{
   margin: 3px;
 }
 
-#deleteChoreBtn:hover {
+#deleteChoreBtn:hover, #completeChoreBtn:hover {
   color: rgba(25, 96, 140, 0.6);
   cursor: pointer;
 }

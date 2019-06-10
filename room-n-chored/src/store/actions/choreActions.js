@@ -9,7 +9,8 @@ export const createChore = (chore) => {
             authorFirstName: profile.firstName,
             authorLastName: profile.lastName,
             authorId: authorId,
-            createdAt: new Date()
+            createdAt: new Date(),
+            complete: false
         }).then(() => {
             dispatch({ type: 'CREATE_CHORE', chore });
         }).catch((err) => {
