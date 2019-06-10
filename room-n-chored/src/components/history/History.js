@@ -6,21 +6,40 @@ import { Redirect } from 'react-router-dom';
 import Navbar from '../layout/Navbar';
 import HistoryList from './HistoryList';
 import { NavLink } from 'react-router-dom';
+import { getFirestore } from 'redux-firestore';
 
 class History extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            houseName: ''
+        }
+    }
     render() {
         // console.log(this.props);
         const { chores, users, auth } = this.props;
         if (!auth.uid) return <Redirect to='/signin' />
         let userAndChores = [];
+
+        const firestore = getFirestore()
+        firestore.collection('users').doc(auth.uid).get()
+            .then(snapshot => {
+                this.setState({
+                    houseName: snapshot.data().houseName
+                });
+            });
+
         if (users && users.forEach(user => {
-            userAndChores.push(
-                // "key" was put in here to put away warnings in Google Chrome console
-                <div className="col s4" key={user.id}> 
-                    <HistoryList chores={chores} user={user}/>
-                </div>
-            )
+            if (user.houseName === this.state.houseName) {
+                userAndChores.push(
+                    // "key" was put in here to put away warnings in Google Chrome console
+                    <div className="col s4" key={user.id}>
+                        <HistoryList chores={chores} user={user} auth={auth} />
+                    </div>
+                )
+            }
         }));
+
         return (
             <div>
                 <Navbar />
@@ -50,6 +69,6 @@ export default compose(
         { collection: 'users', orderBy: ['choreCount', 'desc'] }
     ]),
     firestoreConnect([
-        {collection: 'chores', orderBy: ['createdAt', 'desc']}
+        { collection: 'chores', orderBy: ['createdAt', 'desc'] }
     ])
 )(History)
