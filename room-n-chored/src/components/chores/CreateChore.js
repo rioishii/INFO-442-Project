@@ -9,6 +9,7 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import InputLabel from '@material-ui/core/InputLabel';
+import { getFirestore } from 'redux-firestore';
 
 
 class CreateChore extends Component {
@@ -17,7 +18,8 @@ class CreateChore extends Component {
         this.state = {
             title: '',
             date: new Date(),
-            assigned: ''
+            assigned: '',
+            houseName: ''
         }
     }
 
@@ -51,12 +53,22 @@ class CreateChore extends Component {
 
         if (!auth.uid) return <Redirect to='/signin' />
 
+        const firestore = getFirestore();
+        firestore.collection('users').doc(auth.uid).get()
+            .then(snapshot => {
+                this.setState({
+                    houseName: snapshot.data().houseName
+                });
+            });
+
         let userOptions = [];
         if (users) {
             users.forEach(user => {
-                userOptions.push(
-                    <MenuItem value={user}>{user.firstName} {user.lastName}</MenuItem>
-                );
+                if (user.houseName === this.state.houseName) {
+                    userOptions.push(
+                        <MenuItem value={user}>{user.firstName} {user.lastName}</MenuItem>
+                    );
+                }
             });
         }
 
