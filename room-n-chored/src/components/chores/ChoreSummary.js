@@ -1,4 +1,4 @@
-import React, { Component, useReducer } from 'react';
+import React, { Component } from 'react';
 import moment from 'moment';
 import { getFirestore } from 'redux-firestore';
 import Button from '@material-ui/core/Button';
