@@ -5,6 +5,11 @@ import { Redirect, NavLink } from 'react-router-dom';
 import Navbar from '../layout/Navbar';
 import { MuiPickersUtilsProvider, DatePicker } from '@material-ui/pickers';
 import MomentUtils from '@date-io/moment';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
+import MenuItem from '@material-ui/core/MenuItem';
+import InputLabel from '@material-ui/core/InputLabel';
+import Input from '@material-ui/core/Input';
 
 
 class CreateChore extends Component {
@@ -12,14 +17,24 @@ class CreateChore extends Component {
         super(props);
         this.state = {
             title: '',
-            date: new Date()
+            date: new Date(),
+            assigned: ''
         }
     }
 
     handleChange = (e) => {
-        this.setState({
-            [e.target.id]: e.target.value
-        });
+        console.log(e);
+        if (e.target.name && e.target.name === 'assigned') {
+            console.log(e.getAttribute('userprofilevalue'));
+
+            this.setState({
+                [e.target.name]: e.target.value.firstName
+            });
+        } else {
+            this.setState({
+                [e.target.id]: e.target.value
+            });
+        }
     }
 
     handleSubmit = (e) => {
@@ -36,8 +51,16 @@ class CreateChore extends Component {
     }
 
     render() {
-        const { auth } = this.props;
+        const { auth, users } = this.props;
+
         if (!auth.uid) return <Redirect to='/signin' />
+
+        let userOptions = [];
+        users.forEach(user => {
+            userOptions.push(
+                <MenuItem userprofilevalue='test' value={user}>{user.firstName} {user.lastName}</MenuItem>
+            )
+        })
 
         return (
             <div id="chore-flex">
@@ -50,14 +73,27 @@ class CreateChore extends Component {
                             <input type="text" id="title" className="unfocused-input" onChange={this.handleChange} />
                         </div>
                         <div className="input-field">
+                            <label className="blue-trans-txt" htmlFor="title">Due Date</label>
                             <MuiPickersUtilsProvider utils={MomentUtils}>
                                 <DatePicker
-                                    label="Select Due Date"
                                     value={this.state.date}
                                     onChange={date => this.handleDateChange(date)}
                                     minDate={new Date()}
                                 />
                             </MuiPickersUtilsProvider>
+                        </div>
+                        <div className="input-field">
+                            <label className="blue-trans-txt" htmlFor="title">Assign To</label>
+                            <FormControl>
+                                <InputLabel htmlFor="assigned">Name</InputLabel>
+                                <Select
+                                    value={this.state.assigned}
+                                    onChange={this.handleChange}
+                                    input={<Input name="assigned" id="assigned" />}
+                                >
+                                    {userOptions}
+                                </Select>
+                            </FormControl>
                         </div>
                         <div id="button-flex" className="input-field">
                             <NavLink to='/'>
@@ -78,7 +114,8 @@ class CreateChore extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        auth: state.firebase.auth
+        auth: state.firebase.auth,
+        users: state.firestore.ordered.users
     }
 }
 
