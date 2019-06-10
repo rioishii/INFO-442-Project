@@ -60,7 +60,7 @@ class ChoreSummary extends Component {
         let user = this.props.user;
         let content;
         // chore must match with the author's first and last name, and chore must not be complete
-        if (chore.authorFirstName === user.firstName && chore.authorLastName === user.lastName && !chore.complete) {
+        if (chore.assignedFirstName === user.firstName && chore.assignedLastName === user.lastName && !chore.complete) {
             content = (
                 <div className="card z-depth chore-summary">
                     <button id="completeChoreBtn" onClick={this.toggleCompleteModal}>
@@ -78,6 +78,9 @@ class ChoreSummary extends Component {
                             <br></br>
                             {moment(chore.date.toDate()).format('dddd, LL')}
                         </span>
+                        <p>
+                            Assigned to: {chore.assignedFirstName} {chore.assignedLastName}
+                        </p>
                         <p>
                             Posted by: {chore.authorFirstName} {chore.authorLastName}
                         </p>

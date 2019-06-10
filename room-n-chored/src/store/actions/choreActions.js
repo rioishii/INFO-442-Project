@@ -3,13 +3,15 @@ export const createChore = (chore) => {
         // make async call to database
         const firestore = getFirestore();
         const user = chore.assigned;
-        const authorId = user.id;
-        // const profile = getState().firebase.profile;
-        // const authorId = getState().firebase.auth.uid;
+        // const authorId = user.id;
+        const profile = getState().firebase.profile;
+        const authorId = getState().firebase.auth.uid;
         firestore.collection('chores').add({
             title: chore.title,
-            authorFirstName: user.firstName,
-            authorLastName: user.lastName,
+            authorFirstName: profile.firstName,
+            authorLastName: profile.lastName,
+            assignedFirstName: user.firstName,
+            assignedLastName: user.lastName,
             authorId,
             createdAt: new Date(),
             date: chore.date,
