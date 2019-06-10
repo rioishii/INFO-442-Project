@@ -23,12 +23,9 @@ class CreateChore extends Component {
     }
 
     handleChange = (e) => {
-        console.log(e);
         if (e.target.name && e.target.name === 'assigned') {
-            console.log(e.getAttribute('userprofilevalue'));
-
             this.setState({
-                [e.target.name]: e.target.value.firstName
+                [e.target.name]: e.target.value
             });
         } else {
             this.setState({
@@ -56,11 +53,13 @@ class CreateChore extends Component {
         if (!auth.uid) return <Redirect to='/signin' />
 
         let userOptions = [];
-        users.forEach(user => {
-            userOptions.push(
-                <MenuItem userprofilevalue='test' value={user}>{user.firstName} {user.lastName}</MenuItem>
-            )
-        })
+        if (users) {
+            users.forEach(user => {
+                userOptions.push(
+                    <MenuItem value={user}>{user.firstName} {user.lastName}</MenuItem>
+                );
+            });
+        }
 
         return (
             <div id="chore-flex">
@@ -89,7 +88,10 @@ class CreateChore extends Component {
                                 <Select
                                     value={this.state.assigned}
                                     onChange={this.handleChange}
-                                    input={<Input name="assigned" id="assigned" />}
+                                    inputProps={{
+                                        name: 'assigned',
+                                        id: 'assigned'
+                                    }}
                                 >
                                     {userOptions}
                                 </Select>
