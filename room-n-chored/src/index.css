@@ -131,7 +131,7 @@ input[type=password]:not(.browser-default):focus:not([readonly]) + label{
   color: rgb(25, 96, 140) !important;
 }
 
-#deleteChoreBtn, #completeChoreBtn {
+#deleteChoreBtn, #completeChoreBtn, #backBtn {
   color: rgb(25, 96, 140);
   border-width: 0px;
   font-size: 25px;
@@ -139,9 +139,15 @@ input[type=password]:not(.browser-default):focus:not([readonly]) + label{
   margin: 3px;
 }
 
-#deleteChoreBtn:hover, #completeChoreBtn:hover {
+#deleteChoreBtn:hover, #completeChoreBtn:hover, #backBtn {
   color: rgba(25, 96, 140, 0.6);
   cursor: pointer;
+}
+
+#backBtn {
+  float: left;
+  padding: 50px;
+  font-size: 75px;
 }
 
 .user-card-title {
