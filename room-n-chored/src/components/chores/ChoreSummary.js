@@ -56,7 +56,6 @@ class ChoreSummary extends Component {
 
     render() {
         let chore = this.props.chore;
-        console.log(chore.firstName);
         let user = this.props.user;
         let content;
         // chore must match with the author's first and last name, and chore must not be complete

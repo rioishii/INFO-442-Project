@@ -4,17 +4,10 @@ import UserCard from './UserCard';
 import { getFirestore } from 'redux-firestore';
 
 const ChoreList = ({chores, user, auth}) => {
-    const firestore = getFirestore()
-    const currHouseName = firestore.collection('users').doc(auth.uid).get()
-        .then(snapshot => {
-            return snapshot.data().houseName === user.houseName;
-        });
-
     return (
         <div>
             <div className="chore-list section">
-                {/* comment out currHouseName === true if not working right */}
-                { <UserCard user={user}/> } 
+                <UserCard user={user}/>
                 { chores && chores.map(chore => {
                     return (
                         <ChoreSummary chore={chore} key={chore.id} user={user}/>
