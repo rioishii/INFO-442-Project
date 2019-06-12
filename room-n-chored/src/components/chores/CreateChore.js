@@ -80,7 +80,7 @@ class CreateChore extends Component {
                         <h4>Create New Chore</h4>
                         <div className="input-field">
                             <label className="blue-trans-txt" htmlFor="title">Title</label>
-                            <input type="text" id="title" className="unfocused-input" onChange={this.handleChange} />
+                            <input type="text" id="title" className="unfocused-input" required onChange={this.handleChange} />
                         </div>
                         <div className="input-field">
                             <label className="blue-trans-txt" htmlFor="title">Due Date</label>

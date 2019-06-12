@@ -36,7 +36,7 @@ class HistorySummary extends Component {
                             {moment(chore.date.toDate()).format('dddd, LL')}
                         </span>
                         <p>
-                            Posted by {chore.authorFirstName} {chore.authorLastName}
+                            Completed by: {chore.assignedFirstName} {chore.assignedLastName}
                         </p>
                         <p className="grey-text">
                             {moment(chore.createdAt.toDate()).calendar()}

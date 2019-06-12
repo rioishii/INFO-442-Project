@@ -54,23 +54,23 @@ class SignUp extends Component {
                             <br></br>
                             <div className="input-field">
                             <label className="blue-trans-txt" htmlFor="firstName">First Name</label>
-                            <input type="text" id="firstName" className="unfocused-input" onChange={this.handleChange}/>
+                            <input type="text" id="firstName" className="unfocused-input" required onChange={this.handleChange}/>
                             </div>
                             <div className="input-field">
                                 <label className="blue-trans-txt" htmlFor="lastName">Last Name</label>
-                                <input type="text" id="lastName" className="unfocused-input" onChange={this.handleChange}/>
+                                <input type="text" id="lastName" className="unfocused-input" required onChange={this.handleChange}/>
                             </div>
                             <div className="input-field">
                                 <label className="blue-trans-txt" htmlFor="email">Email</label>
-                                <input type="email" id="email" className="unfocused-input" onChange={this.handleChange}/>
+                                <input type="email" id="email" className="unfocused-input" required onChange={this.handleChange}/>
                             </div>
                             <div className="input-field">
                                 <label className="blue-trans-txt" htmlFor="password">Password</label>
-                                <input type="password" id="password" className="unfocused-input" onChange={this.handleChange}/>
+                                <input type="password" id="password" className="unfocused-input" required onChange={this.handleChange}/>
                             </div>
                             <div className="input-field">
                                 <label className="blue-trans-txt" htmlFor="houseName">House Name</label>
-                                <input type="text" id="houseName" className="unfocused-input" onChange={this.handleChange}/>
+                                <input type="text" id="houseName" className="unfocused-input" required onChange={this.handleChange}/>
                             </div>
                             <div className="input-field">
                                 <button className="btn lighten-1 z-depth-0 cream-txt blue-bg width-100">
