@@ -54,11 +54,11 @@ class SignUp extends Component {
                             <br></br>
                             <div className="input-field">
                             <label className="blue-trans-txt" htmlFor="firstName">First Name</label>
-                            <input type="text" id="firstName" className="unfocused-input" required onChange={this.handleChange}/>
+                            <input type="text" id="firstName" className="unfocused-input" required maxlength="20" onChange={this.handleChange}/>
                             </div>
                             <div className="input-field">
                                 <label className="blue-trans-txt" htmlFor="lastName">Last Name</label>
-                                <input type="text" id="lastName" className="unfocused-input" required onChange={this.handleChange}/>
+                                <input type="text" id="lastName" className="unfocused-input" required required maxlength="20" onChange={this.handleChange}/>
                             </div>
                             <div className="input-field">
                                 <label className="blue-trans-txt" htmlFor="email">Email</label>
